@@ -1,0 +1,32 @@
+.nav-link {
+  font-size: large;
+  color: black;
+}
+.nav {
+  color: white;
+}
+.nav-item {
+  text-decoration: none;
+  color: white;
+}
+#whole {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  background-color: rgba(41, 5, 71, 0.918);
+  color: white;
+}
+.card {
+  background-color: rgb(45, 21, 48);
+  margin-top: 20px;
+  border: 1px solid blueviolet;
+}
+.card-body {
+  background-color: rgb(45, 21, 48);
+}
+.card .list-group {
+  color: black;
+  background-color: rgb(45, 21, 48);
+}
