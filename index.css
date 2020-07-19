@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 .nav-link {
   font-size: large;
   color: black;
 }
 .nav {
   color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: larger;
 }
 .nav-item {
   text-decoration: none;
@@ -15,7 +18,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   align-content: space-around;
-  background-color: rgba(41, 5, 71, 0.918);
+  background-color: rgba(23, 44, 55, 1);
   color: white;
 }
 .card {

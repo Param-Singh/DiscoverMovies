@@ -1,25 +1,20 @@
-// creating card node
 var card = new Array(20);
-var btn = document.getElementById("sub");
-fetch(
-  "https://api.themoviedb.org/3/trending/all/week?api_key=c34df976000f1a26e276d60a211ed023"
-)
-  .then((res) => res.json())
-  .then((res) => {
-    manipulate(res);
-  });
-btn.onclick = function () {
-  var q = document.getElementById("query").value;
-  console.log(q);
+var genres = document.getElementsByClassName("card");
+var set = localStorage.getItem("set");
+for (var i = 0; i < genres.length; i++)
+  genres[i].addEventListener("click", selected);
+function selected(e) {
+  var id = e.target.id;
+  console.log(id);
   fetch(
-    "https://api.themoviedb.org/3/search/multi?api_key=c34df976000f1a26e276d60a211ed023&language=en-US&page=1&include_adult=true&query=" +
-      q
+    "https://api.themoviedb.org/3/discover/" +
+      set +
+      "?api_key=c34df976000f1a26e276d60a211ed023&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=" +
+      id
   )
     .then((res) => res.json())
-    .then((res) => {
-      manipulate(res);
-    });
-};
+    .then((res) => manipulate(res));
+}
 function manipulate(res) {
   var body = document.getElementById("whole");
   var del = document.getElementsByClassName("card");
@@ -41,6 +36,8 @@ function manipulate(res) {
     card[i].appendChild(cardBody);
     var title = document.createElement("h5");
     title.className = "card-title";
+    title.style.color = "white";
+    title.style.textAlign = "center";
     cardBody.appendChild(title);
     var text = document.createElement("p");
     text.className = "card-text";
@@ -77,7 +74,23 @@ function manipulate(res) {
     list[2].textContent = "Vote Count " + arr[i].vote_count;
   }
 }
-//Using local storage
+//searching by genres
+var btn = document.getElementById("sub");
+btn.onclick = function () {
+  var q = document.getElementById("query").value;
+  console.log(q);
+  fetch(
+    "https://api.themoviedb.org/3/search/" +
+      set +
+      "?api_key=c34df976000f1a26e276d60a211ed023&language=en-US&page=1&include_adult=true&query=" +
+      q
+  )
+    .then((res) => res.json())
+    .then((res) => {
+      manipulate(res);
+    });
+};
+//updating set key when ath is not from index
 var movies = document.getElementById("movie");
 movies.onclick = storing;
 var shows = document.getElementById("tv");

@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+#whole {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  background-color: rgba(23, 44, 55, 1);
+}
+.card-text {
+  text-align: center;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: larger;
+}
+.card {
+  background-color: rgba(13, 13, 14, 0.473);
+  margin-top: 20px;
+  border: 1px solid blueviolet;
+}
